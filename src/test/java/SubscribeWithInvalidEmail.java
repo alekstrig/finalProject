@@ -4,16 +4,18 @@ import org.testng.annotations.Test;
 public class SubscribeWithInvalidEmail extends BaseTest {
 
     @Test
-    public void enterInvalidEmail() {
+    public void enterInvalidEmail() throws InterruptedException {
 
         MainPage mainPage = new MainPage();
 
-        String myActualEmailText =
-            mainPage.enterEmailField("ttt@ttt")
-                .clickOnSubScribeButton()
-                .checkInvalidEmail();
 
-        Assert.assertEquals(myActualEmailText, "You have successfully subscribed to this newsletter.");
+
+       boolean myActualEmail =
+            mainPage.enterEmailField("777")
+            .clickOnSubScribeButton()
+            .checkInvalidEmail();
+
+        Assert.assertEquals(myActualEmail, false);
 
 
 
