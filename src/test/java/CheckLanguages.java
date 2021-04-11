@@ -1,3 +1,4 @@
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CheckLanguages extends BaseTest {
@@ -8,7 +9,13 @@ public class CheckLanguages extends BaseTest {
         MainPage mainPage = new MainPage();
 
         //int actualNumbersOfLanguages =
-                mainPage.clickOnDropDownLanguages();
+                mainPage.clickOnDropDownLanguages()
+                .getListOfLanguages();
+
+
+
+        //Assert.assertEquals(actualNumbersOfLanguages,44);
+
 
 
 

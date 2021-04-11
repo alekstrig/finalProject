@@ -2,6 +2,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
+
 public class MainPage extends BasePage {
 
     @FindBy(xpath = "//input[@type ='email']")
@@ -16,8 +19,8 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//button[@data-toggle = 'dropdown']")
     private WebElement dropDownLanguages;
 
-    @FindBy(xpath = "//ul[@aria-labelledby = 'language-selector-label']")
-    private WebElement listOfLanguages;
+   @FindBy(xpath = "//a[contains(@href, 'show')]")
+   private List<WebElement> listOfLanguages;
 
 
     public MainPage() {
@@ -45,6 +48,20 @@ public class MainPage extends BasePage {
         dropDownLanguages.click();
         return this;
     }
+
+    public MainPage getListOfLanguages() {
+          List<WebElement> countLanguage = listOfLanguages;
+        System.out.println(countLanguage.size());
+
+
+
+
+          return this;
+
+    }
+    //List<WebElement> allSmile = driver.findElements(By.xpath("//tbody/*//i[@class ='media-photo fa fa-smile-o fa-3x']"));
+
+
 
 
 
