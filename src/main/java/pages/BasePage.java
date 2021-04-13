@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class BasePage {
 
@@ -27,6 +28,12 @@ public class BasePage {
     protected void waiter (WebElement element) throws InterruptedException {
         Thread.sleep(5000);
     }
+
+    protected void hoverToElement (WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).build().perform();
+    }
+
     String  myFirstName = "Oleksandr";
     String myLastName = "Trygub";
 

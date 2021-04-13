@@ -53,7 +53,9 @@ public class BaseTest {
 
     @AfterMethod
 
-    public void quite() throws InterruptedException { BasePage.getDriver().quit();
+    public void quite() throws InterruptedException {
+        Thread.sleep(3000);
+        BasePage.getDriver().quit();
     }
 
 }

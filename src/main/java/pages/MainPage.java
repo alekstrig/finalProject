@@ -31,6 +31,9 @@ public class MainPage extends BasePage {
    @FindBy(xpath = "//a/span[@class ='hidden-sm-down']")
    private WebElement accauntName;
 
+    @FindBy(xpath = "//a[contains(@href,'clothes')]")
+    private WebElement categoryClothes;
+
 
     public MainPage() {
         PageFactory.initElements(getDriver(), this); }
@@ -92,6 +95,11 @@ public class MainPage extends BasePage {
         Thread.sleep(3000);
         return accauntName.getText();
 
+    }
+
+    public MainPage howerToClothesCategoty() throws InterruptedException {
+        hoverToElement(categoryClothes);
+        return this;
     }
 
 
