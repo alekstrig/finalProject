@@ -1,3 +1,6 @@
+package pages;
+
+import bloks.ListOfLanguage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -21,6 +24,12 @@ public class MainPage extends BasePage {
 
    @FindBy(xpath = "//a[contains(@href, 'show')]")
    private List<WebElement> listOfLanguages;
+
+   @FindBy(xpath = "//span[@class = 'hidden-sm-down' and text() = 'Sign in']")
+   private WebElement signInButton;
+
+   @FindBy(xpath = "//a/span[@class ='hidden-sm-down']")
+   private WebElement accauntName;
 
 
     public MainPage() {
@@ -49,16 +58,62 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public MainPage getListOfLanguages() {
+    public boolean getListOfLanguages() {
           List<WebElement> countLanguage = listOfLanguages;
-        System.out.println(countLanguage.size());
+
+        for (WebElement sizeOfList : countLanguage) {
+            if (sizeOfList.getText().equals("Українська")) {
+               return true;
+            }
+        }
 
 
+        return false;
+    }
+
+    public boolean getNumberOfLanguages() {
+        List<WebElement> countLanguage = listOfLanguages;
+
+        //for (WebElement sizeOfList : countLanguage) {
+            if (countLanguage.size()>= 44) {
+                return true;
+            }
+
+        return false;
+    }
 
 
-          return this;
+    public SignInPage clickOnSignInButton() {
+        signInButton.click();
+        return new SignInPage();
+    }
+
+    public String getTextFromAccaunt() throws InterruptedException {
+        Thread.sleep(3000);
+        return accauntName.getText();
 
     }
+
+
+  /*  public List<ListOfLanguage> getListOfLanguages() {
+        ListOfLanguage language = new ListOfLanguage();
+        List<ListOfLanguage> languages = language.getLanguage(listOfLanguages);
+        return languages;
+    }*/
+
+
+
+    /*public int checkListOfLanguages() {
+        for (WebElement sizeOfList : countLanguage) {
+            if (sizeOfList.getSize()>= 44) {
+
+            }
+
+        }
+    }*/
+
+
+
     //List<WebElement> allSmile = driver.findElements(By.xpath("//tbody/*//i[@class ='media-photo fa fa-smile-o fa-3x']"));
 
 
