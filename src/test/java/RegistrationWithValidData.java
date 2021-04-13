@@ -24,7 +24,7 @@ public class RegistrationWithValidData extends BaseTest {
                         .setPassword("12345")
                         .setCostumerPrivacy()
                         .setPrivacyPolicy()
-                        .pushSubmitButton()
+                        .clickSubmitButton()
                         .getTextFromAccaunt();
         Assert.assertEquals(actualAccountName, "Clark Kent");
 

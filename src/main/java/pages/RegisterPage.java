@@ -35,6 +35,9 @@ public class RegisterPage extends BasePage {
     @FindBy(xpath = "//footer/button[@type ='submit']")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//li[contains(@class,'alert')]")
+    private WebElement invalidFormat;
+
 
     public RegisterPage() {
         PageFactory.initElements(getDriver(),this);
@@ -79,9 +82,22 @@ public class RegisterPage extends BasePage {
         return this;
     }
 
-    public MainPage pushSubmitButton() {
+    public MainPage clickSubmitButton() {
         submitButton.click();
         return new MainPage();
+    }
+
+    public String checkColorOfBorder() {
+        return firstNameField.getCssValue("outline-color");
+    }
+
+    public String checkInvalidFormat() {
+        return invalidFormat.getText();
+    }
+
+    public RegisterPage clickOnSignInButtonWithInvalid() {
+        submitButton.click();
+        return this;
     }
 
 
