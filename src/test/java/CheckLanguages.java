@@ -7,7 +7,7 @@ import pages.MainPage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CheckLanguages extends BaseTest {
+/*public class CheckLanguages extends BaseTest {
 
     @Test
    /* public void test2() {
@@ -28,18 +28,20 @@ public class CheckLanguages extends BaseTest {
     }*/
 
 
-    public void checkLanguages() {
+/*    public void checkLanguages() {
 
         MainPage mainPage = new MainPage();
 
         boolean  actualLanguageInList  =
                 mainPage.clickOnDropDownLanguages()
                         .getListOfLanguages();
+        
 
-        boolean actualNumbersOfLanguages =
+        List<String> languages =
                 mainPage.clickOnDropDownLanguages()
                 .getNumberOfLanguages();
 
+        languages.size();
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(actualNumbersOfLanguages, true);
@@ -54,6 +56,6 @@ public class CheckLanguages extends BaseTest {
 
 
     }
-}
+}*/
 
 

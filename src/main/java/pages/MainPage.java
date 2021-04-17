@@ -1,10 +1,10 @@
 package pages;
 
-import bloks.ListOfLanguage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -16,27 +16,28 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//input[@value = 'Subscribe']")
     private WebElement subScribeButton;
 
-   // @FindBy(xpath = "//form[@method = 'post']//p[@class]")
-   // private WebElement checkEmailField;
+    // @FindBy(xpath = "//form[@method = 'post']//p[@class]")
+    // private WebElement checkEmailField;
 
     @FindBy(xpath = "//button[@data-toggle = 'dropdown']")
     private WebElement dropDownLanguages;
 
-   @FindBy(xpath = "//a[contains(@href, 'show')]")
-   private List<WebElement> listOfLanguages;
+    @FindBy(xpath = "//a[contains(@href, 'show')]")
+    private List<WebElement> listOfLanguages;
 
-   @FindBy(xpath = "//span[@class = 'hidden-sm-down' and text() = 'Sign in']")
-   private WebElement signInButton;
+    @FindBy(xpath = "//span[@class = 'hidden-sm-down' and text() = 'Sign in']")
+    private WebElement signInButton;
 
-   @FindBy(xpath = "//a/span[@class ='hidden-sm-down']")
-   private WebElement accauntName;
+    @FindBy(xpath = "//a/span[@class ='hidden-sm-down']")
+    private WebElement accauntName;
 
     @FindBy(xpath = "//a[contains(@href,'clothes')]")
     private WebElement categoryClothes;
 
 
     public MainPage() {
-        PageFactory.initElements(getDriver(), this); }
+        PageFactory.initElements(getDriver(), this);
+    }
 
     public MainPage enterEmailField(String email) throws InterruptedException {
 
@@ -51,7 +52,7 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public boolean  checkInvalidEmail() {
+    public boolean checkInvalidEmail() {
         return subscribeInput(emailField);
 
     }
@@ -62,11 +63,11 @@ public class MainPage extends BasePage {
     }
 
     public boolean getListOfLanguages() {
-          List<WebElement> countLanguage = listOfLanguages;
+        List<WebElement> countLanguage = listOfLanguages;
 
         for (WebElement sizeOfList : countLanguage) {
             if (sizeOfList.getText().equals("Українська")) {
-               return true;
+                return true;
             }
         }
 
@@ -74,15 +75,12 @@ public class MainPage extends BasePage {
         return false;
     }
 
-    public boolean getNumberOfLanguages() {
-        List<WebElement> countLanguage = listOfLanguages;
-
-        //for (WebElement sizeOfList : countLanguage) {
-            if (countLanguage.size()>= 44) {
-                return true;
-            }
-
-        return false;
+    public List<String> getNumberOfLanguages() {
+        List<String> languages = new ArrayList<>();
+        for (WebElement language : listOfLanguages) {
+            languages.add(language.getText());
+        }
+        return languages;
     }
 
 
@@ -121,14 +119,7 @@ public class MainPage extends BasePage {
     }*/
 
 
-
     //List<WebElement> allSmile = driver.findElements(By.xpath("//tbody/*//i[@class ='media-photo fa fa-smile-o fa-3x']"));
-
-
-
-
-
-
 
 
 }

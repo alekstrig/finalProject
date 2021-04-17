@@ -34,8 +34,7 @@ public class BasePage {
         actions.moveToElement(element).build().perform();
     }
 
-    String  myFirstName = "Oleksandr";
-    String myLastName = "Trygub";
+
 
 
 
