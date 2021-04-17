@@ -62,7 +62,7 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    public boolean getListOfLanguages() {
+    /*public boolean getListOfLanguages() {
         List<WebElement> countLanguage = listOfLanguages;
 
         for (WebElement sizeOfList : countLanguage) {
@@ -73,9 +73,9 @@ public class MainPage extends BasePage {
 
 
         return false;
-    }
+    }*/
 
-    public List<String> getNumberOfLanguages() {
+    public List<String> getListOfLanguages() {
         List<String> languages = new ArrayList<>();
         for (WebElement language : listOfLanguages) {
             languages.add(language.getText());
