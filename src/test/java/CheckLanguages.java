@@ -1,5 +1,4 @@
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.MainPage;
 
 import java.util.List;
@@ -22,11 +21,13 @@ public class CheckLanguages extends BaseTest {
         List<String> uk = mainPage.clickOnDropDownLanguages()
                 .getListOfLanguages();
 
-        SoftAssert softAssert = new SoftAssert();
+        /*SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(sumOfLanguages, 44);
-        assertThat(uk).containsSequence("Українська");
 
-       softAssert.assertAll();
+       softAssert.assertAll();*/
+        assertThat(uk).containsSequence("Українська");
+        assertThat(sumOfLanguages).isEqualTo(44);
+
 
 
     }
